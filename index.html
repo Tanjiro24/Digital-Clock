@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="digital-clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+                <span>:</span>
+                <span id="last"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let Hrs = document.getElementById("hrs");
+        let Min = document.getElementById("min");
+        let Sec = document.getElementById("sec");
+        let Last = document.getElementById("last");
+
+        let a;
+        let date;
+        let finalTime;
+        let hours;
+        let AmOrPm
+       
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString(undefined);
+            hours = a.getHours();
+            AmOrPm = hours >= 12 ? 'PM' : 'AM';
+            hours = (hours % 12) || 12;
+            minutes = a.getMinutes();
+            seconds = a.getSeconds();
+            Hrs.innerHTML = `${hours}`;
+            Min.innerHTML = `${minutes}`;
+            Sec.innerHTML = `${seconds}`;
+            Last.innerHTML =AmOrPm;
+        });
+
+    </script>
+</body>
+
+</html>
